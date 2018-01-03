@@ -1,0 +1,17 @@
+[
+  ./bluetooth.nix
+  ./buildworker.nix
+  ./essentials.nix
+  ./games.nix
+  ./gnome.nix
+  ./mpd.nix
+  ./nextcloud.nix
+  ./overlays.nix
+  ./printing.nix
+  ./pulseaudio.nix
+  ./steam-controller.nix
+  ./tinc.nix
+  ./update-tool.nix
+  ./xmonad.nix
+  ./xserver.nix
+]
