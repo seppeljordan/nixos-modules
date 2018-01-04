@@ -23,7 +23,6 @@ in
     environment.systemPackages = with pkgs; [
       ario
       chromium
-      # display-config
       evince
       firefox
       gimp
@@ -40,6 +39,7 @@ in
       owncloudclient
       picard
       plasma-workspace-wallpapers
+      skype
       tdesktop
       termite
       thunderbird

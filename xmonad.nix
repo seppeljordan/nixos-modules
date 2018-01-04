@@ -41,6 +41,7 @@ in
 
     environment.systemPackages = with pkgs; [
       arc-icon-theme
+      display-config
       dzen2
       gnome3.defaultIconTheme
       gtk2
