@@ -23,7 +23,7 @@ in
     environment.systemPackages = with pkgs; [
       ario
       chromium
-      display-config
+      # display-config
       evince
       firefox
       gimp

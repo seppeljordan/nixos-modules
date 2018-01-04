@@ -6,9 +6,9 @@
   ./gnome.nix
   ./mpd.nix
   ./nextcloud.nix
-  ./overlays.nix
   ./printing.nix
   ./pulseaudio.nix
+  ./overlays.nix
   ./steam-controller.nix
   ./tinc.nix
   ./update-tool.nix

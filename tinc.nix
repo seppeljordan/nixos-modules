@@ -16,6 +16,10 @@ in
       description =
         "Description of the hosts of the tinc network";
     };
+    privateKey = mkOption {
+      type = types.path;
+      description = "The private key to use for transport encryption";
+    };
     connectNames = mkOption {
       type = with types; listOf str;
       description =
@@ -40,7 +44,7 @@ in
       prefixLength = 16;
     }];
     services.tinc.networks."private" = {
-      ed25519PrivateKeyFile = ../tinc-keys/private;
+      ed25519PrivateKeyFile = cfg.privateKey;
       name = cfg.name;
       chroot = false;
       listenAddress = "0.0.0.0";
