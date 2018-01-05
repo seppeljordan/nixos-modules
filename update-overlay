@@ -1,0 +1,5 @@
+#!/usr/bin/env nix-shell
+#! nix-shell -p bash jq nix-prefetch-scripts -i bash
+
+nix-prefetch-git "https://github.com/seppeljordan/nix-overlay" |
+    jq '{url: .url, rev: .rev, sha256: .sha256}' > overlay.json
