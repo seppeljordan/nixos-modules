@@ -1,0 +1,30 @@
+#!/usr/bin/env nix-shell
+#! nix-shell -p pypiPackages3.interpreter -i python
+
+import json
+import svm.nix
+
+
+repo_url = 'https://github.com/NixOS/nixpkgs-channels.git'
+
+with open('nixpkgs.json', 'w') as f:
+    prefetch_result = svm.nix.prefetch_git_branch(
+        repo_url,
+        'nixos-unstable',
+        local_mirror='/home/sebastian/src/nixpkgs',
+    )
+    json.dump(
+        {
+            'url': prefetch_result['url'],
+            'rev': prefetch_result['rev'],
+            'sha256': prefetch_result['sha256']
+        },
+        f
+    )
+with open('.nixpkgs-url', 'w') as f:
+    f.write(
+        'https://github.com/NixOS/nixpkgs/archive/{rev}.tar.gz'.format(
+            rev=prefetch_result['rev'],
+        ),
+    )
+# https://github.com/NixOS/nixpkgs/archive/master.zip
