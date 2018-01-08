@@ -10,7 +10,6 @@ in
   importOverlays [
     "10-python3Packages"
     "10-python2Packages"
-    "10-nixpkgs-python"
     "90-custom"
   ];
 }
