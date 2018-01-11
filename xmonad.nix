@@ -43,6 +43,7 @@ in
       arc-icon-theme
       display-config
       dzen2
+      feh
       gnome3.defaultIconTheme
       gtk2
       haskellPackages.xmobar
