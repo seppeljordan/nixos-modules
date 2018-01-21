@@ -25,6 +25,7 @@ in
       btrfsProgs
       cabal2nix
       cloc
+      convmv
       cowsay
       darcs
       dhcp
