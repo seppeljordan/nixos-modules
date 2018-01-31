@@ -1,8 +1,5 @@
-{ system ? builtins.currentSystem }:
-with import <nixpkgs/nixos/lib/testing.nix> { inherit system; };
-with import <nixpkgs/nixos/lib/qemu-flags.nix>;
-with pkgs.lib;
-makeTest {
+import <nixpkgs/nixos/tests/make-test.nix>
+{
   name = "overlay-test";
   nodes = {
     machine = {config, pkgs, ...}: {

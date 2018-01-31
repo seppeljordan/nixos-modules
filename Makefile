@@ -7,6 +7,6 @@ update:
 	./update-overlay
 
 test:
-	nix-build test.nix
+	nix-build test.nix --show-trace
 
 .PHONY: update test
