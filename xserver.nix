@@ -39,6 +39,7 @@ in
       owncloudclient
       picard
       plasma-workspace-wallpapers
+      signal-desktop
       skype
       tdesktop
       termite

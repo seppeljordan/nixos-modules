@@ -16,7 +16,6 @@ in
     };
     environment.systemPackages =
     with pkgs; [
-      inetutils
       acpi
       aspellDicts.de
       aspellDicts.en
@@ -46,6 +45,7 @@ in
       htop
       iftop
       imagemagick
+      inetutils
       iotop
       jq
       lsof
