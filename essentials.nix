@@ -65,6 +65,7 @@ in
       pwgen
       pypiPackages2.packages.hetzner
       pypiPackages3.packages.jinja2-cli
+      pypiPackages3.packages.nix-helpers
       pypiPackages3.packages.pypi2nix
       pypiPackages3.packages.stormssh
       python3Packages.isort
