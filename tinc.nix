@@ -39,7 +39,7 @@ in
   config = mkIf cfg.enable {
     networking.firewall.allowedUDPPorts = [ 655 ];
     networking.firewall.allowedTCPPorts = [ 655 ];
-    networking.interfaces."tinc.private".ip4 = [{
+    networking.interfaces."tinc.private".ipv4.addresses = [{
       address = cfg.address;
       prefixLength = 16;
     }];

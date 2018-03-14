@@ -55,6 +55,7 @@ in
       tango-icon-theme
       trayer
       vanilla-dmz
+      xfce.ristretto
     ];
     services.compton = {
       enable = true;
