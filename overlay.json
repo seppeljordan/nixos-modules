@@ -1,5 +1,6 @@
 {
-  "url": "https://github.com/seppeljordan/nix-overlay",
-  "rev": "24c7335c270bfd5931c23c7fd9cb2f295409e00a",
-  "sha256": "1jwpgwh9a53hjmnk04c4z6jp5d2rhvkakbxvky03yhkrwdixp853"
+    "owner": "seppeljordan",
+    "repo": "nix-overlay",
+    "rev": "03e94c6f4501e14de1b7c8e34eef007e2b5ed3f6",
+    "sha256": "1pgps6s6w3zi9wdgh5dn1gpbcfsv4kcr57ppnhmqjl8255aawskb"
 }

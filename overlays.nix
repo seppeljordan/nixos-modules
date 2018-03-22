@@ -3,7 +3,7 @@ let
   importOverlays = name: import "${overlays}/${name}";
   _nixpkgs = import <nixpkgs> {};
   overlays = with builtins;
-    _nixpkgs.fetchgit (fromJSON (readFile ./overlay.json));
+    _nixpkgs.fetchFromGitHub (fromJSON (readFile ./overlay.json));
 in
 {
   nixpkgs.overlays = builtins.map
