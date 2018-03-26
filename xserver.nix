@@ -30,6 +30,7 @@ in
       gnome3.evolution
       gnome3.file-roller
       gnome3.gnome_terminal
+      gnome3.nautilus
       gparted
       hexchat
       keepassx-community
