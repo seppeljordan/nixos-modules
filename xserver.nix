@@ -36,6 +36,7 @@ in
       libreoffice
       meld
       mypaint
+      nextcloud-client
       owncloudclient
       picard
       plasma-workspace-wallpapers
