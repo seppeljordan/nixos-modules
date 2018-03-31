@@ -46,6 +46,7 @@ in
       tdesktop
       termite
       thunderbird
+      unetbootin
       vlc
       xclip
       xorg.xev

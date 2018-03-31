@@ -51,6 +51,7 @@ in
       lsof
       man-pages
       mercurial
+      ms-sys
       nix-prefetch-scripts
       nix-repl
       nixops
