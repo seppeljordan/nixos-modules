@@ -81,6 +81,7 @@ in
       telnet
       texlive.combined.scheme-full
       tinc_pre
+      travis
       unzip
       wavemon
       wget
