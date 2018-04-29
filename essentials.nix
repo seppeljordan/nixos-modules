@@ -41,7 +41,6 @@ in
       gnutls
       gv
       haskellEnv
-      haskellPackages.update-tool
       htop
       iftop
       imagemagick

@@ -11,7 +11,6 @@
   ./overlays.nix
   ./steam-controller.nix
   ./tinc.nix
-  ./update-tool.nix
   ./xmonad.nix
   ./xserver.nix
 ]
