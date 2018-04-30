@@ -4,8 +4,14 @@ let
   cfg = config.customServices.xmonad;
 in
 {
-  options.customServices.xmonad.enable =
-    mkEnableOption "xmonad";
+  options.customServices.xmonad = {
+    enable = mkEnableOption "xmonad";
+    inactiveOpacity = mkOption {
+      type = types.str;
+      default = "1";
+    };
+  };
+
   config = mkIf cfg.enable {
     customServices.xserver.enable = true;
     services.xserver = {
@@ -23,10 +29,13 @@ in
         xterm.enable = false;
         default = "none";
       };
-      synaptics.enable = true;
-      synaptics.twoFingerScroll = true;
-      synaptics.accelFactor = "1.2";
-      synaptics.fingersMap = [ 1 3 2];
+      # synaptics = {
+      #   enable = true;
+      #   twoFingerScroll = true;
+      #   accelFactor = "1.2";
+      #   fingersMap = [ 1 3 2];
+      # };
+      libinput.enable = true;
       displayManager.sessionCommands = ''
         export GTK_DATA_PREFIX=${config.system.path}
         export GTK_PATH=${config.system.path}/lib/gtk-3.0:${config.system.path}/lib/gtk-2.0
@@ -60,7 +69,7 @@ in
     services.compton = {
       enable = true;
       backend = "xrender";
-      inactiveOpacity = "0.9";
+      inactiveOpacity = "${cfg.inactiveOpacity}";
     };
   };
 }
