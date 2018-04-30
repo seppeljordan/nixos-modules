@@ -83,6 +83,7 @@ in
       tinc_pre
       travis
       unzip
+      usbutils
       wavemon
       wget
       zip
