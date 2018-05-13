@@ -2,13 +2,13 @@
 #! nix-shell -p pypiPackages3.interpreter -i python
 
 import json
-import svm.nix
+import nix.prefetch
 
 
 repo_url = 'https://github.com/NixOS/nixpkgs-channels.git'
 
 with open('nixpkgs.json', 'w') as f:
-    prefetch_result = svm.nix.prefetch_git_branch(
+    prefetch_result = nix.prefetch.prefetch_git_branch(
         repo_url,
         'nixos-unstable',
         local_mirror='/home/sebastian/src/nixpkgs',
