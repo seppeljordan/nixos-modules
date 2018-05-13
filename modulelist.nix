@@ -13,4 +13,5 @@
   ./tinc.nix
   ./xmonad.nix
   ./xserver.nix
+  ./riemann.nix
 ]
