@@ -1,32 +1,39 @@
-{ pkgs, lib, config, ...}:
-
+{ config, lib, ...}:
 let
-  cfg = config.customServices.riemann-dash;
-  serviceConfig = ''
-    set :port, ${builtins.toString cfg.port}
-    set :bind, "${cfg.bind}"
-    config[:ws_config] = '${cfg.workspaceConfig}'
-  '';
+
+cfg = config.customServices.riemann;
+riemann-config = ''
+  (logging/init {:console true})
+  (let [host "${cfg.bindAddress}"]
+    (tcp-server {:host host :port ${builtins.toString cfg.tcpPort})
+    (ws-server {:host host :port ${builtins.toString cfg.websocketPort}))
+
+  (instrumentation {:enabled? false})
+
+  (streams
+   (default :ttl 60
+            (index)))
+'';
+
 in
+
 {
-  options.customServices.riemann-dash = with lib; {
-    enable = mkEnableOption "Riemann dash";
-    port = mkOption {
+  options.customServices.riemann = with lib; {
+    enable = mkEnableOption "riemann";
+    websocketPort = mkOption {
       type = types.ints.unsigned;
     };
-    bind = mkOption {
-      type = types.str;
-      default = "127.0.0.1";
+    tcpPort = mkOption {
+      type = types.ints.unsigned;
     };
-    workspaceConfig = mkOption {
-      type = types.path;
-      default = "/var/riemann-dash/config.json";
+    bindAddress = mkOption {
+      type = types.str;
     };
   };
+
   config = lib.mkIf cfg.enable {
-    services.riemann-dash = {
-      enable = true;
-      config = serviceConfig;
-    };
+    services.riemann.enable = true;
+    services.riemann.config = riemann-config;
+    networking.firewall.allowedTCPPorts = [ cfg.tcpPort cfg.websocketPort ];
   };
 }

@@ -14,4 +14,5 @@
   ./xmonad.nix
   ./xserver.nix
   ./riemann.nix
+  ./riemann-dash.nix
 ]
