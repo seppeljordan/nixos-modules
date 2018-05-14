@@ -4,12 +4,13 @@ let
   cfg = config.customServices.essentials;
 in
 {
-  options = {
-    customServices.essentials.sshKey = mkOption {
+  options.customServices.essentials = {
+    sshKey = mkOption {
       description = "Authorized ssh key";
     };
+    enable = mkEnableOption "essential Program";
   };
-  config = {
+  config = mkIf cfg.enable {
     networking.firewall = {
       enable = true;
       allowPing = true;

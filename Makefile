@@ -8,5 +8,6 @@ update:
 
 test:
 	nix build -f test.nix --show-trace
+	nix build -f tests/riemann.nix --show-trace
 
 .PHONY: update test
