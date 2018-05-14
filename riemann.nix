@@ -5,8 +5,8 @@ cfg = config.customServices.riemann;
 riemann-config = ''
   (logging/init {:console true})
   (let [host "${cfg.bindAddress}"]
-    (tcp-server {:host host :port ${builtins.toString cfg.tcpPort})
-    (ws-server {:host host :port ${builtins.toString cfg.websocketPort}))
+    (tcp-server {:host host :port ${builtins.toString cfg.tcpPort}})
+    (ws-server {:host host :port ${builtins.toString cfg.websocketPort}}))
 
   (instrumentation {:enabled? false})
 
