@@ -75,6 +75,7 @@ in
       python3Packages.youtube-dl
       rfkill
       shellcheck
+      skopeo
       smartmontools
       speedtest-cli
       tcpdump
