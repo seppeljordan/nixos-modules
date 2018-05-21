@@ -43,6 +43,7 @@ in
       plasma-workspace-wallpapers
       signal-desktop
       skype
+      slack
       tdesktop
       termite
       thunderbird
