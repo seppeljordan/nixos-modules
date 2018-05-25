@@ -65,6 +65,7 @@ in
       trayer
       vanilla-dmz
       xfce.ristretto
+      xorg.xbacklight
     ];
     services.compton = {
       enable = true;
