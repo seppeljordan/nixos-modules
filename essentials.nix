@@ -66,6 +66,7 @@ in
       pwgen
       pypiPackages2.packages.hetzner
       pypiPackages3.packages.jinja2-cli
+      pypiPackages3.packages.kubecert
       pypiPackages3.packages.nix-helpers
       pypiPackages3.packages.nix-prefetch-github
       pypiPackages3.packages.parsemon2
