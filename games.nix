@@ -14,8 +14,6 @@ in
       dwarf-fortress
       keen4
       steam
-      wineWow
-      winetricks
       xboxdrv
       zsnes
     ];
