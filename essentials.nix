@@ -53,7 +53,6 @@ in
       mercurial
       ms-sys
       nix-prefetch-scripts
-      nix-repl
       nixops
       nmap
       nodePackages.node2nix
