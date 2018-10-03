@@ -11,7 +11,7 @@ in
       34197 # factorio
     ];
     environment.systemPackages = with pkgs; [
-      dwarf-fortress
+      # dwarf-fortress
       keen4
       steam
       xboxdrv
