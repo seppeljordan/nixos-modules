@@ -6,6 +6,10 @@ in
 {
   options.customServices.buildworker = {
     enable = mkEnableOption "nix build worker";
+    key = mkOption {
+      type = types.path;
+      description = "Public ssh key for build worker";
+    };
   };
   config = mkIf cfg.enable {
     nix.trustedUsers = [ "root" "buildfarm" ];
@@ -13,7 +17,7 @@ in
       buildfarm = {
         isNormalUser = true;
         openssh.authorizedKeys.keyFiles = [
-          /home/sebastian/servers/nixops/sshkeys/buildkey.pub
+          cfg.key
         ];
       };
     };
