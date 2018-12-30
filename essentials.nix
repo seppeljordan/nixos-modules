@@ -84,6 +84,7 @@ in
       texlive.combined.scheme-full
       tinc_pre
       travis
+      cachix
       unzip
       usbutils
       wavemon
