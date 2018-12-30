@@ -4,7 +4,12 @@ let
   cfg = config.customServices.mpd;
 in
 {
-  options.customServices.mpd.enable = mkEnableOption "mpd";
+  options.customServices.mpd = {
+    enable = mkEnableOption "mpd";
+    user = mkOption {
+      type = types.str;
+    };
+  };
   config = mkIf cfg.enable {
     services.mpd = {
       enable = true;
@@ -15,9 +20,8 @@ in
           server      "/run/user/1000/pulse/native"
         }
       '';
-      musicDirectory = "/home/sebastian/ownCloud/music";
-      dataDir = "/home/sebastian/.mpd";
-      user = "sebastian";
+      dataDir = "/home/${cfg.user}/.mpd";
+      user = "${cfg.user}";
       group = "users";
     };
     environment.systemPackages = with pkgs; [
