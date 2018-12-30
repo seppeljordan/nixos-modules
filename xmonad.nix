@@ -65,6 +65,7 @@ in
       trayer
       vanilla-dmz
       xfce.ristretto
+      xlockmore
       xorg.xbacklight
     ];
     services.compton = {
