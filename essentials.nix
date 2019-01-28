@@ -24,6 +24,7 @@ in
       bind
       btrfsProgs
       cabal2nix
+      cachix
       cloc
       convmv
       cowsay
@@ -42,6 +43,7 @@ in
       gnutls
       gv
       haskellEnv
+      hfsprogs
       htop
       iftop
       imagemagick
@@ -84,11 +86,11 @@ in
       texlive.combined.scheme-full
       tinc_pre
       travis
-      cachix
       unzip
       usbutils
       wavemon
       wget
+      woeusb
       zip
     ];
     programs = {
