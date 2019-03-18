@@ -35,7 +35,6 @@ in
       hexchat
       keepassx-community
       libreoffice
-      meld
       mypaint
       nextcloud-client
       owncloudclient

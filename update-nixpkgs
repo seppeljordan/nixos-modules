@@ -10,7 +10,7 @@ repo_url = 'https://github.com/NixOS/nixpkgs-channels.git'
 with open('nixpkgs.json', 'w') as f:
     prefetch_result = nix.prefetch.prefetch_git_branch(
         repo_url,
-        'nixos-18.09',
+        'nixos-19.03',
         local_mirror='/home/sebastian/src/nixpkgs',
     )
     json.dump(
