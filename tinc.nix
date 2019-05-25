@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 with lib;
 let
   cfg = config.customServices.tinc;
@@ -39,18 +39,20 @@ in
   config = mkIf cfg.enable {
     networking.firewall.allowedUDPPorts = [ 655 ];
     networking.firewall.allowedTCPPorts = [ 655 ];
-    networking.interfaces."tinc.private".ipv4.addresses = [{
-      address = cfg.address;
-      prefixLength = 16;
-    }];
     services.tinc.networks."private" = {
       ed25519PrivateKeyFile = cfg.privateKey;
       name = cfg.name;
       chroot = false;
-      listenAddress = "0.0.0.0";
-      interfaceType = "tap";
       hosts = cfg.hosts;
       extraConfig = tincConnect;
+      debugLevel = 1;
+    };
+    environment.etc."tinc/private/tinc-up" = {
+      text = ''
+        ${pkgs.iproute}/bin/ip address add ${cfg.address}/16 dev $INTERFACE
+        ${pkgs.iproute}/bin/ip link set $INTERFACE up
+      '';
+      mode = "0555";
     };
   };
 }
