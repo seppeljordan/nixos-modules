@@ -80,6 +80,7 @@ in
       skopeo
       smartmontools
       speedtest-cli
+      subversion
       tcpdump
       tcpflow
       telnet
