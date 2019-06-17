@@ -54,6 +54,7 @@ in
       man-pages
       mercurial
       ms-sys
+      nix-prefetch-github
       nix-prefetch-scripts
       nixops
       nmap
@@ -69,7 +70,6 @@ in
       pypiPackages3.packages.jinja2-cli
       pypiPackages3.packages.kubecert
       pypiPackages3.packages.nix-helpers
-      pypiPackages3.packages.nix-prefetch-github
       pypiPackages3.packages.parsemon2
       pypiPackages3.packages.pypi2nix
       pypiPackages3.packages.stormssh
