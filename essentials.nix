@@ -22,9 +22,11 @@ in
       aspellDicts.en
       bc
       bind
+      binutils
       btrfsProgs
       cabal2nix
       cachix
+      cargo
       cloc
       convmv
       cowsay
@@ -36,6 +38,7 @@ in
       emacsEnv
       encfs
       ethtool
+      gcc
       gdo-exec
       git
       gnumake
@@ -64,6 +67,7 @@ in
       pandoc
       parallel
       pciutils
+      pkgconfig
       pmutils
       pwgen
       pypiPackages2.packages.hetzner
@@ -76,6 +80,7 @@ in
       python3Packages.isort
       python3Packages.youtube-dl
       rfkill
+      rustc
       shellcheck
       skopeo
       smartmontools
