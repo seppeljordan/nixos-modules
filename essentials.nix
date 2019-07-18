@@ -81,6 +81,7 @@ in
       python3Packages.youtube-dl
       rfkill
       rustc
+      rustracer
       shellcheck
       skopeo
       smartmontools
