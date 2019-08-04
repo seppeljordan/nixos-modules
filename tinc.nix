@@ -2,11 +2,9 @@
 with lib;
 let
   cfg = config.customServices.tinc;
-  tincConnect = concatMapStrings
-    (name: ''
-        ConnectTo = ${name}
-     ''
-    ) cfg.connectNames;
+  hostNameToConfigLine = name: "ConnectTo = ${name}"
+  tincConnect = intersperse "\n" (map hostNameToConfigLine cfg.connectNames);
+  networkName = "private";
 in
 {
   options.customServices.tinc = {
@@ -39,7 +37,7 @@ in
   config = mkIf cfg.enable {
     networking.firewall.allowedUDPPorts = [ 655 ];
     networking.firewall.allowedTCPPorts = [ 655 ];
-    services.tinc.networks."private" = {
+    services.tinc.networks."${networkName}" = {
       ed25519PrivateKeyFile = cfg.privateKey;
       name = cfg.name;
       chroot = false;
@@ -47,7 +45,7 @@ in
       extraConfig = tincConnect;
       debugLevel = 1;
     };
-    environment.etc."tinc/private/tinc-up" = {
+    environment.etc."tinc/${networkName}/tinc-up" = {
       text = ''
         ${pkgs.iproute}/bin/ip address add ${cfg.address}/16 dev $INTERFACE
         ${pkgs.iproute}/bin/ip link set $INTERFACE up
