@@ -2,8 +2,9 @@
 with lib;
 let
   cfg = config.customServices.tinc;
-  hostNameToConfigLine = name: "ConnectTo = ${name}"
+  hostNameToConfigLine = name: "ConnectTo = ${name}";
   tincConnect = intersperse "\n" (map hostNameToConfigLine cfg.connectNames);
+  tincConnectString = concatStrings tincConnect;
   networkName = "private";
 in
 {
@@ -42,7 +43,7 @@ in
       name = cfg.name;
       chroot = false;
       hosts = cfg.hosts;
-      extraConfig = tincConnect;
+      extraConfig = tincConnectString;
       debugLevel = 1;
     };
     environment.etc."tinc/${networkName}/tinc-up" = {
