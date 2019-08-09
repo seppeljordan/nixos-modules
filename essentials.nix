@@ -78,6 +78,7 @@ in
       pypiPackages3.packages.pypi2nix
       pypiPackages3.packages.stormssh
       python3Packages.isort
+      python3Packages.virtualenv
       python3Packages.youtube-dl
       rfkill
       rustc
