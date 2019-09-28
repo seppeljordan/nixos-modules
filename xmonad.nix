@@ -68,10 +68,5 @@ in
       xlockmore
       xorg.xbacklight
     ];
-    services.compton = {
-      enable = true;
-      backend = "xrender";
-      inactiveOpacity = "${cfg.inactiveOpacity}";
-    };
   };
 }
