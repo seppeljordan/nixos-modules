@@ -67,6 +67,7 @@ in
       pandoc
       parallel
       pciutils
+      pip-test-env
       pkgconfig
       pmutils
       pwgen
