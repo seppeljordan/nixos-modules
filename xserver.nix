@@ -15,8 +15,6 @@ in
     };
     services.redshift = {
       enable = true;
-      latitude = 52.4584;
-      longitude = 13.438;
     };
     fonts.fonts = with pkgs;
       [ fira-mono fira dejavu_fonts ];
