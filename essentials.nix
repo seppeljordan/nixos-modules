@@ -20,6 +20,7 @@ in
       acpi
       aspellDicts.de
       aspellDicts.en
+      ansible
       bc
       bind
       binutils
