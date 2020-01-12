@@ -1,11 +1,8 @@
 { config, lib, pkgs, ... }:
 with lib;
-let
-  cfg = config.customServices.xserver;
-in
-{
-  options.customServices.xserver.enable =
-    mkEnableOption "xserver";
+let cfg = config.customServices.xserver;
+in {
+  options.customServices.xserver.enable = mkEnableOption "xserver";
 
   config = mkIf cfg.enable {
     services.xserver = {
@@ -13,11 +10,8 @@ in
       layout = "us";
       xkbOptions = "eurosign:e";
     };
-    services.redshift = {
-      enable = true;
-    };
-    fonts.fonts = with pkgs;
-      [ fira-mono fira dejavu_fonts ];
+    services.redshift = { enable = true; };
+    fonts.fonts = with pkgs; [ fira-mono fira dejavu_fonts ];
     environment.systemPackages = with pkgs; [
       ario
       chromium

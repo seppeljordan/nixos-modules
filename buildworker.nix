@@ -1,9 +1,7 @@
 { config, pkgs, lib, ... }:
 with lib;
-let
-  cfg = config.customServices.buildworker;
-in
-{
+let cfg = config.customServices.buildworker;
+in {
   options.customServices.buildworker = {
     enable = mkEnableOption "nix build worker";
     key = mkOption {
@@ -16,9 +14,7 @@ in
     users.extraUsers = {
       buildfarm = {
         isNormalUser = true;
-        openssh.authorizedKeys.keyFiles = [
-          cfg.key
-        ];
+        openssh.authorizedKeys.keyFiles = [ cfg.key ];
       };
     };
   };

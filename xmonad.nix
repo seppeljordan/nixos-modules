@@ -1,9 +1,7 @@
 { config, lib, pkgs, ... }:
 with lib;
-let
-  cfg = config.customServices.xmonad;
-in
-{
+let cfg = config.customServices.xmonad;
+in {
   options.customServices.xmonad = {
     enable = mkEnableOption "xmonad";
     inactiveOpacity = mkOption {
@@ -19,9 +17,9 @@ in
       windowManager.xmonad = {
         enable = true;
         enableContribAndExtras = true;
-        extraPackages =
-          haskellPackages: with haskellPackages;
-          [ parsec
+        extraPackages = haskellPackages:
+          with haskellPackages; [
+            parsec
             alsa-mixer
           ];
       };

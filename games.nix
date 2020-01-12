@@ -1,11 +1,8 @@
 { config, lib, pkgs, ... }:
 with lib;
-let
-  cfg = config.customServices.games;
-in
-{
-  options.customServices.games.enable =
-    mkEnableOption "Games";
+let cfg = config.customServices.games;
+in {
+  options.customServices.games.enable = mkEnableOption "Games";
   config = mkIf cfg.enable {
     networking.firewall.allowedUDPPorts = [
       34197 # factorio

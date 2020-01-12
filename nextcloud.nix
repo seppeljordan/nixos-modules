@@ -11,8 +11,7 @@ let
       ssl.pemfile = "${cfg.pemFile}"
     }
   '';
-in
-{
+in {
   options.services.lighttpd.nextcloud = {
 
     enable = mkEnableOption "Nextcloud in lighttpd";
@@ -20,7 +19,8 @@ in
     package = mkOption {
       type = types.package;
       default = pkgs.fetchzip {
-        url = "https://download.nextcloud.com/server/releases/nextcloud-12.0.3.zip";
+        url =
+          "https://download.nextcloud.com/server/releases/nextcloud-12.0.3.zip";
         sha256 = "06k446bgl7lyjjys5g61b22sfdlb1k9pg4i9d7qn31j9j3pw9x1k";
       };
       description = "Nextcloud package to use.";
@@ -62,27 +62,26 @@ in
 
   config = mkIf (config.services.lighttpd.enable && cfg.enable) {
 
-    systemd.services.lighttpd.preStart =
-      ''
-        echo "Setting up Nextcloud in ${cfg.installPrefix}/"
-        ${pkgs.rsync}/bin/rsync -a --checksum "${cfg.package}/" "${cfg.installPrefix}/"
+    systemd.services.lighttpd.preStart = ''
+      echo "Setting up Nextcloud in ${cfg.installPrefix}/"
+      ${pkgs.rsync}/bin/rsync -a --checksum "${cfg.package}/" "${cfg.installPrefix}/"
 
-        mkdir -p "${cfg.installPrefix}/data"
-        chown -R lighttpd:lighttpd "${cfg.installPrefix}"
-        chmod 775 "${cfg.installPrefix}"
-        chmod 770 "${cfg.installPrefix}/data"
-        chmod 770 "${cfg.installPrefix}/apps"
-        chmod 770 "${cfg.installPrefix}/config"
-        chmod 660 "${cfg.installPrefix}/.user.ini"
-        chmod 660 "${cfg.installPrefix}/.htaccess"
-      '';
+      mkdir -p "${cfg.installPrefix}/data"
+      chown -R lighttpd:lighttpd "${cfg.installPrefix}"
+      chmod 775 "${cfg.installPrefix}"
+      chmod 770 "${cfg.installPrefix}/data"
+      chmod 770 "${cfg.installPrefix}/apps"
+      chmod 770 "${cfg.installPrefix}/config"
+      chmod 660 "${cfg.installPrefix}/.user.ini"
+      chmod 660 "${cfg.installPrefix}/.htaccess"
+    '';
 
     services.lighttpd = {
       enableModules = [ "mod_alias" "mod_fastcgi" "mod_access" "mod_setenv" ];
       extraConfig = ''
         # mimetype.assign = ( ".svg" => "image/svg+xml" )
 
-        ${optionalString (! (builtins.isNull cfg.pemFile)) tlsConfig}
+        ${optionalString (!(builtins.isNull cfg.pemFile)) tlsConfig}
 
         $HTTP["host"] =~ "${cfg.vhostsPattern}" {
             alias.url += ( "${cfg.urlPrefix}" => "${cfg.installPrefix}/" )

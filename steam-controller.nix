@@ -1,9 +1,7 @@
 { config, lib, pkgs, ... }:
 with lib;
-let
-  cfg = config.customServices.steamcontroller;
-in
-{
+let cfg = config.customServices.steamcontroller;
+in {
   options.customServices.steamcontroller.enable =
     mkEnableOption "steamcontroller support";
 

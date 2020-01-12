@@ -1,4 +1,4 @@
-all: update test
+all: update format test
 
 update:
 	./update-overlay
@@ -6,4 +6,8 @@ update:
 test:
 	nix build -f test.nix --show-trace
 
-.PHONY: update test
+format:
+	nixfmt $$(find . -name \*.nix)
+
+
+.PHONY: update test format all

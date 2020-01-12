@@ -6,14 +6,12 @@ let
   tincConnect = intersperse "\n" (map hostNameToConfigLine cfg.connectNames);
   tincConnectString = concatStrings tincConnect;
   networkName = "private";
-in
-{
+in {
   options.customServices.tinc = {
     enable = mkEnableOption "tinc networking";
     hosts = mkOption {
       type = with types; attrsOf str;
-      description =
-        "Description of the hosts of the tinc network";
+      description = "Description of the hosts of the tinc network";
     };
     privateKey = mkOption {
       type = types.path;
@@ -21,18 +19,15 @@ in
     };
     connectNames = mkOption {
       type = with types; listOf str;
-      description =
-        "Tinc hosts to connect with";
+      description = "Tinc hosts to connect with";
     };
     name = mkOption {
       type = types.str;
-      description =
-        "Name of the host known to the tinc network";
+      description = "Name of the host known to the tinc network";
     };
     address = mkOption {
       type = types.str;
-      description =
-        "Tinc address of the machine";
+      description = "Tinc address of the machine";
     };
   };
   config = mkIf cfg.enable {

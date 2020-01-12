@@ -1,19 +1,15 @@
 { config, lib, pkgs, ... }:
 with lib;
-let
-  cfg = config.customServices.mpd;
-in
-{
+let cfg = config.customServices.mpd;
+in {
   options.customServices.mpd = {
     enable = mkEnableOption "mpd";
-    user = mkOption {
-      type = types.str;
-    };
+    user = mkOption { type = types.str; };
   };
   config = mkIf cfg.enable {
     services.mpd = {
       enable = true;
-      extraConfig=''
+      extraConfig = ''
         audio_output {
           type        "pulse"
           name        "MPD"
@@ -24,10 +20,6 @@ in
       user = "${cfg.user}";
       group = "users";
     };
-    environment.systemPackages = with pkgs; [
-      chromaprint
-      ncmpc
-      mpc_cli
-    ];
+    environment.systemPackages = with pkgs; [ chromaprint ncmpc mpc_cli ];
   };
 }
