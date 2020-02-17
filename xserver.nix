@@ -13,6 +13,7 @@ in {
     services.redshift = { enable = true; };
     fonts.fonts = with pkgs; [ fira-mono fira dejavu_fonts ];
     environment.systemPackages = with pkgs; [
+      alacritty
       ario
       chromium
       evince

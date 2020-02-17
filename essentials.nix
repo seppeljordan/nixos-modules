@@ -13,9 +13,9 @@ in {
     };
     environment.systemPackages = with pkgs; [
       acpi
+      ansible
       aspellDicts.de
       aspellDicts.en
-      ansible
       bc
       bind
       binutils
@@ -36,6 +36,7 @@ in {
       ethtool
       gcc
       git
+      gitAndTools.git-annex
       gnumake
       gnupg
       gnutls
@@ -45,7 +46,6 @@ in {
       htop
       iftop
       imagemagick
-      nixfmt
       inetutils
       iotop
       jq
@@ -55,6 +55,7 @@ in {
       ms-sys
       nix-prefetch-github
       nix-prefetch-scripts
+      nixfmt
       nixops
       nmap
       nodePackages.node2nix
@@ -63,6 +64,7 @@ in {
       pandoc
       parallel
       pciutils
+      pijul
       pip-test-env
       pkgconfig
       pmutils
