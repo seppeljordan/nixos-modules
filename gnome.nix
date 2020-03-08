@@ -7,9 +7,9 @@ in {
     customServices.xserver.enable = true;
     services.xserver = {
       desktopManager = {
-        default = "none";
         gnome3 = { enable = true; };
       };
+      displayManager.defaultSession = "gnome";
     };
   };
 }

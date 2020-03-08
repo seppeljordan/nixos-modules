@@ -13,7 +13,6 @@ in {
   config = mkIf cfg.enable {
     customServices.xserver.enable = true;
     services.xserver = {
-      windowManager.default = "xmonad";
       windowManager.xmonad = {
         enable = true;
         enableContribAndExtras = true;
@@ -25,7 +24,6 @@ in {
       };
       desktopManager = {
         xterm.enable = false;
-        default = "none";
       };
       # synaptics = {
       #   enable = true;
@@ -44,6 +42,7 @@ in {
           export DBUS_SESSION_BUS_ADDRESS
         fi
       '';
+      displayManager.defaultSession = "none+xmonad";
     };
 
     environment.systemPackages = with pkgs; [
